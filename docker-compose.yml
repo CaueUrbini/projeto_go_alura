@@ -8,7 +8,8 @@ services:
     ports:
       - 5432:5432
     volumes:
-      - ./postgres-data:/var/lib/postgresql/data
+      - ./postgres-data:/var/lib;postgresql/
+    restart: always
 
   app:
     build:
@@ -18,3 +19,4 @@ services:
       - 8080:8080
     depends_on:
       - postgres
+    restart: always
